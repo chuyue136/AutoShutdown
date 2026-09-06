@@ -27,17 +27,3 @@
 
 前往 [Releases](https://github.com/chuyue136/AutoShutdown/releases) 页面下载最新版本，解压后双击 `WPF APP.exe` 即可运行；或运行安装向导 `AutoShutdown_Setup_v1.0.0.exe` 完成安装。
 
-### 方式二：自行编译
-
-环境要求：Visual Studio 2026 或 .NET 10 SDK。
-
-```bash
-# 克隆仓库
-git clone https://github.com/chuyue136/AutoShutdown.git
-cd AutoShutdown
-
-# 框架依赖发布（用户机器需安装 .NET 10 桌面运行时）
-dotnet publish -c Release -o ./publish
-
-# 自包含发布（单文件夹，无需安装运行时，体积较大）
-dotnet publish -c Release -r win-x64 --self-contained true -o ./publish
