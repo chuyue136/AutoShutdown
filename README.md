@@ -1,0 +1,43 @@
+# 自动关机助手 (AutoShutdown)
+
+一个简洁、现代化的 Windows 定时自动关机工具。基于 C# WPF (.NET 10) 开发，提供每日独立关机时间、自定义提醒弹窗、自定义提示音与系统托盘支持。
+
+## 功能特性
+
+- **每日独立定时**：周一到周日每天可分别设置独立的关机时间，任意一天可单独禁用
+- **自定义提醒弹窗**：弹窗倒计时时长（默认 30 秒）、"再提醒"时长（默认 10 分钟）均可自由调节
+- **自定义提示音**：内置多组预设提示音，支持导入自定义音频文件，音量可调；提示音仅在弹窗出现瞬间播放一次
+- **快捷批量设置**：支持"全部统一 / 工作日统一 / 周末统一"批量设置关机时间
+- **现代化界面**：Fluent Design 风格，无边框窗口 + 左侧导航，支持浅色 / 深色主题跟随系统
+- **系统托盘**：后台静默运行，支持右键快捷操作
+- **二次确认**：主页与托盘菜单的"立即关机"均带确认弹窗，防止误触
+- **运行日志**：自动记录关机历史、用户操作与异常信息，保留最近 30 天
+- **关于页**：内嵌本地 HTML 网页（WebView2），支持"在浏览器中打开"
+
+## 系统要求
+
+- Windows 10 / Windows 11（64 位）
+- 已安装 .NET 10 Desktop Runtime（框架依赖版本）或使用自包含版本（无需安装运行时）
+
+> 注意：.NET 10 与 WebView2 均已不再支持 Windows 7 / 8.1，本软件无法在这些系统上运行。
+
+## 快速使用
+
+### 方式一：下载成品
+
+前往 [Releases](https://github.com/chuyue136/AutoShutdown/releases) 页面下载最新版本，解压后双击 `WPF APP.exe` 即可运行；或运行安装向导 `AutoShutdown_Setup_v1.0.0.exe` 完成安装。
+
+### 方式二：自行编译
+
+环境要求：Visual Studio 2026 或 .NET 10 SDK。
+
+```bash
+# 克隆仓库
+git clone https://github.com/chuyue136/AutoShutdown.git
+cd AutoShutdown
+
+# 框架依赖发布（用户机器需安装 .NET 10 桌面运行时）
+dotnet publish -c Release -o ./publish
+
+# 自包含发布（单文件夹，无需安装运行时，体积较大）
+dotnet publish -c Release -r win-x64 --self-contained true -o ./publish
